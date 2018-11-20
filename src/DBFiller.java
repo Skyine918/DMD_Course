@@ -40,7 +40,7 @@ public class DBFiller {
         sqls.add("CREATE TABLE IF NOT EXISTS car (\n"
                 + " CID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "	model VARCHAR(50) NOT NULL,\n"
-                + "	color VARCHAR(320),\n"
+                + "	color VARCHAR(30),\n"
                 + " location VARCHAR(15)\n"
                 + ");");
 
@@ -50,7 +50,7 @@ public class DBFiller {
                 + "	carddata VARCHAR(50) NOT NULL,\n"
                 + "	amount INT,\n"
                 + " CID INT,\n"
-                + " FOREIGN KEY (CID) REFERENCES car(CID) on delete cascade\n"
+                + " FOREIGN KEY (CID) REFERENCES customer(username) on delete cascade\n"
                 + ");");
 
         try (Connection conn = DriverManager.getConnection(url);
