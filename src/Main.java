@@ -6,11 +6,6 @@ import java.sql.SQLException;
 
 public class Main {
 
-    /**
-     * Connect to a sample database
-     *
-     * @param fileName the database file name
-     */
     private static void createNewDatabase(String fileName) {
 
         String url = "jdbc:sqlite:./" + fileName;

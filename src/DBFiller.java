@@ -10,7 +10,7 @@ public class DBFiller {
     String dbname = "test.db";
 
 
-    public void createTables() {
+    void createTables() {
         // SQLite connection string
         String url = "jdbc:sqlite:" + path + "/" + dbname;
 
@@ -28,7 +28,7 @@ public class DBFiller {
                 + ");");
 
         sqls.add("CREATE TABLE IF NOT EXISTS car_order (\n"
-                + "	OID int PRIMARY KEY,\n"
+                + "	OID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "	timestamp TIMESTAMP NOT NULL,\n"
                 + " model VARCHAR(50),\n"
                 + " color VARCHAR(15),\n"
@@ -45,7 +45,7 @@ public class DBFiller {
                 + ");");
 
         sqls.add("CREATE TABLE IF NOT EXISTS payment (\n"
-                + "	ID INT PRIMARY KEY,\n"
+                + "	PID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "	timestamp TIMESTAMP NOT NULL,\n"
                 + "	carddata VARCHAR(50) NOT NULL,\n"
                 + "	amount INT,\n"
@@ -65,7 +65,7 @@ public class DBFiller {
         }
     }
 
-    public void cleanDB() {
+    void cleanDB() {
 
         String url = "jdbc:sqlite:" + path + "/" + dbname;
 
@@ -90,7 +90,7 @@ public class DBFiller {
         }
     }
 
-    public void fillTables() {
+    void fillTables() {
 
         String url = "jdbc:sqlite:" + path + "/" + dbname;
 
