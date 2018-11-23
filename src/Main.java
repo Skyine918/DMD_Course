@@ -25,12 +25,14 @@ public class Main {
 
     public static void main(String[] args) {
         DBFiller filler = new DBFiller();
+        DBSelectTest s  = new DBSelectTest();
 
         filler.cleanDB();
 
         filler.createTables();
-
         filler.fillTables();
+
+//        s.selectkek();
     }
 
 }
