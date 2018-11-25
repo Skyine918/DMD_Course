@@ -32,7 +32,7 @@ public class Main {
         filler.createTables();
         filler.fillTables();
 
-//        s.selectkek();
+        s.selectkek();
     }
 
 }
