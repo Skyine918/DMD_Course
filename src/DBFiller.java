@@ -114,7 +114,8 @@ public class DBFiller {
                 + "	CID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + " plate VARCHAR(50),\n"
                 + " CSID INTEGER,\n"
-                + "	time smalldatetime,\n"
+                + "	time time,\n"
+                + "	date date,\n"
                 + " Price INTEGER,\n"
                 + " FOREIGN KEY (plate) REFERENCES Cars(plate),\n"
                 + " FOREIGN KEY (CSID) REFERENCES Charging_stations(CSID)\n"
@@ -148,7 +149,7 @@ public class DBFiller {
                 + " OID INTEGER,\n"
                 + " amount INTEGER,\n"
                 + " carddata VARCHAR(100),\n"
-                + " payment_time date,\n"
+                + " date date,\n"
                 + " IsPaid BIT,\n"
                 + " FOREIGN KEY (OID) REFERENCES Orders(OID)\n"
                 + ");");
@@ -235,7 +236,7 @@ public class DBFiller {
 
                 ";");
 
-        sqls.add("INSERT INTO Payments (OID, amount, payment_time, isPaid) VALUES" +
+        sqls.add("INSERT INTO Payments (OID, amount, date, isPaid) VALUES" +
                 " ('1', '222', date('now', '-5 days'), 1),\n" +
                 " ('2', '222', date('now', '-5 days'), 1),\n" +
                 " ('3', '222', date('now', '-5 days'), 1),\n" +
@@ -266,7 +267,7 @@ public class DBFiller {
                 " ('user2'),\n" +
                 " ('user3'),\n" +
                 " ('user4'),\n" +
-                " ('user5')\n" +
+                " ('user5') \n" +
                 ";");
 
 
