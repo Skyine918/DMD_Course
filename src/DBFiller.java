@@ -234,16 +234,16 @@ public class DBFiller {
 
                 ";");
 
-        sqls.add("INSERT INTO Payments (OID, amount, payment_time) VALUES" +
-                " ('1', '222', date('now', '-5 days')),\n" +
-                " ('2', '22', date('now', '-5 days')),\n" +
-                " ('3', '2', date('now', '-5 days')),\n" +
-                " ('7', '222', date('now', '-5 days')),\n" +
-                " ('5', '222', date('now', '-5 days')),\n" +
-                " ('5', '222', date('now', '-5 days')),\n" +
-                " ('5', '222', date('now', '-5 days')),\n" +
-                " ('6', '222', date('now', '-5 days')),\n" +
-                " ('3', '222', date('now', '-5 days'))\n" +
+        sqls.add("INSERT INTO Payments (OID, amount, payment_time, isPaid) VALUES" +
+                " ('1', '222', date('now', '-5 days'), 1),\n" +
+                " ('2', '222', date('now', '-5 days'), 1),\n" +
+                " ('3', '222', date('now', '-5 days'), 1),\n" +
+                " ('7', '222', date('now', '-5 days'), 1),\n" +
+                " ('5', '222', date('now', '-5 days'), 1),\n" +
+                " ('5', '222', date('now', '-5 days'), 1),\n" +
+                " ('5', '222', date('now', '-5 days'), 1),\n" +
+                " ('6', '222', date('now', '-5 days'), 1),\n" +
+                " ('3', '222', date('now', '-5 days'), 1)\n" +
 
                 ";");
 
