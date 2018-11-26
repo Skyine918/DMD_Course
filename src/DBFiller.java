@@ -131,7 +131,6 @@ public class DBFiller {
         sqls.add("CREATE TABLE IF NOT EXISTS Workshop_parts (\n"
                 + "	WPID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + " WID INTEGER,\n"
-                + " model VARCHAR(100),\n"
                 + " part VARCHAR(100),\n"
                 + " amount INTEGER,\n"
                 + " FOREIGN KEY (WID) REFERENCES Workshops(WID)\n"
@@ -221,16 +220,18 @@ public class DBFiller {
 
                 ";");
 
-        sqls.add("INSERT INTO Orders (username, plate, date, time) VALUES" +
-                " ('user1', 'AA100A', '25/11/2017', '12:30'),\n" +
-                " ('user1', 'AA100A', '25/11/2017', '12:30'),\n" +
-                " ('user1', 'AA100A', '25/11/2017', '12:30'),\n" +
-                " ('user1', 'AA100A', '25/11/2017', '12:30'),\n" +
-                " ('user2', 'AA100A', '25/11/2016', '12:30'),\n" +
-                " ('user2', 'AA100A', '25/11/2015', '12:30'),\n" +
-                " ('user2', 'AA100A', '25/11/2018', '12:30'),\n" +
-                " ('user3', 'AA100A', '25/11/2018', '12:30'),\n" +
-                " ('user5', 'AA100A', '25/11/2018', '12:30')\n" +
+        sqls.add("INSERT INTO Orders (username, plate, date, time, init_address, arriving_address) VALUES" +
+                " ('user1', 'AA100A', date('now', '-1 months'), '06:30', 'Kek street 1', 'Lol street 1'),\n" +
+                " ('user1', 'AA100A', date('now', '-1 months'), '07:30', 'Kek street 1', 'Lol street 1'),\n" +
+                " ('user1', 'AA100A', date('now', '-2 months'), '08:30', 'Kek street 1', 'Lol street 1'),\n" +
+                " ('user1', 'AA100A', date('now', '-2 months'), '09:30', 'Kek street 1', 'Lol street 1'),\n" +
+                " ('user2', 'AA100A', date('now', '-2 months'), '10:30', 'Kek street 2', 'Lol street 2'),\n" +
+                " ('user2', 'AA100A', date('now', '-2 months'), '11:30', 'Kek street 2', 'Lol street 2'),\n" +
+                " ('user2', 'AA100A', date('now', '-2 months'), '12:30', 'Kek street 2', 'Lol street 2'),\n" +
+                " ('user3', 'AA100B', date('now', '-3 months'), '16:30', 'Kek street 3', 'Lol street 2'),\n" +
+                " ('user5', 'AA100B', date('now', '-4 months'), '17:30', 'Kek street 3', 'Lol street 3'),\n" +
+                " ('user5', 'AA100C', date('now', '-3 months'), '18:30', 'Kek street 4', 'Lol street 3'),\n" +
+                " ('user5', 'AA100D', date('now', '-2 months'), '19:30', 'Kek street 4', 'Lol street 5')\n" +
 
                 ";");
 
@@ -244,6 +245,19 @@ public class DBFiller {
                 " ('5', '222', date('now', '-5 days'), 1),\n" +
                 " ('6', '222', date('now', '-5 days'), 1),\n" +
                 " ('3', '222', date('now', '-5 days'), 1)\n" +
+
+                ";");
+
+        sqls.add("INSERT INTO Trips (OID, starttime, finishtime, distance_to_init_address, total_distance) VALUES" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-1 hours'), 1, 5),\n" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-2 hours'), 6, 5),\n" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-1 hours'), 3, 5),\n" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-2 hours'), 1, 5),\n" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-1 hours'), 5, 6),\n" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-2 hours'), 1, 3),\n" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-1 hours'), 2, 2),\n" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-2 hours'), 4, 5),\n" +
+                " ('1', datetime('now', '-5 hours'), datetime('now', '-1 hours'), 6, 23)\n" +
 
                 ";");
 
