@@ -114,9 +114,11 @@ public class DBFiller {
                 + "	CID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + " plate VARCHAR(50),\n"
                 + " CSID INTEGER,\n"
+                + " SID INTEGER,\n"
                 + "	time time,\n"
                 + "	date date,\n"
                 + " Price INTEGER,\n"
+                + " FOREIGN KEY (SID) REFERENCES Sockets(SID),\n"
                 + " FOREIGN KEY (plate) REFERENCES Cars(plate),\n"
                 + " FOREIGN KEY (CSID) REFERENCES Charging_stations(CSID)\n"
                 + ");");
@@ -233,6 +235,21 @@ public class DBFiller {
                 " ('user5', 'AA100B', date('now', '-4 months'), '17:30', 'Kek street 3', 'Lol street 3'),\n" +
                 " ('user5', 'AA100C', date('now', '-3 months'), '18:30', 'Kek street 4', 'Lol street 3'),\n" +
                 " ('user5', 'AA100D', date('now', '-2 months'), '19:30', 'Kek street 4', 'Lol street 5')\n" +
+
+                ";");
+
+        sqls.add("INSERT INTO Charges (plate, CSID, date, time, Price) VALUES" +
+                " ('AA100A', 1, date('now', '-1 months'), '06:30', '222'), " +
+                " ('AA100A', 1, date('now', '-1 months'), '07:30', '222'), " +
+                " ('AA100A', 1, date('now', '-2 months'), '08:30', '123'), " +
+                " ('AA100A', 1, date('now', '-2 months'), '09:30', '121'), " +
+                " ('AA100A', 1, date('now', '-2 months'), '10:30', '222'), " +
+                " ('AA100A', 1, date('now', '-2 months'), '11:30', '222'), " +
+                " ('AA100A', 1, date('now', '-2 months'), '12:30', '222'), " +
+                " ('AA100B', 1, date('now', '-3 months'), '16:30', '223'), " +
+                " ('AA100B', 1, date('now', '-4 months'), '17:30', '223'), " +
+                " ('AA100C', 1, date('now', '-3 months'), '18:30', '224'), " +
+                " ('AA100D', 1, date('now', '-2 months'), '19:30', '224')" +
 
                 ";");
 

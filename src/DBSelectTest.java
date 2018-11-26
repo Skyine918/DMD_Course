@@ -17,19 +17,41 @@ public class DBSelectTest {
         return conn;
     }
 
-    public void select2() {
+    public String getstats(String date, String from, String to) {
 
-        String sql = "SELECT Orders.OID, COUNT(*)" +
-                "FROM Orders " +
-                "INNER JOIN Payments ON Payments.OID = Orders.OID " +
-                "WHERE " +
-                "username = 'user2'" +
+        String sql = "SELECT COUNT(*)" +
+                " FROM Sockets " +
+                " INNER JOIN Charges C on Sockets.SID = C.SID" +
+                " WHERE " +
+                " C.TIME BETWEEN date('" + from + "') AND date('" + to + "')" +
                 " AND " +
-                "IsPaid = 1" +
+                " C.date = date('" + date + "')" +
+                " ORDER BY COUNT(*) DESC " +
+                ";";
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            // loop through the result set
+            while (rs.next()) {
+                return "Sockets " + rs.getString("COUNT(*)");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+//    01:00, 02:00
+    public void select2(String date, String from, String to) {
+
+        String sql = "SELECT COUNT(*)" +
+                " FROM Sockets " +
+                " INNER JOIN Charges C on Sockets.SID = C.SID" +
+                " WHERE " +
+                " C.TIME BETWEEN date('"+from+"') AND date('"+to+"')" +
                 " AND " +
-                "Payments.date BETWEEN date('now', 'start of month') AND date('now', 'localtime')" +
-                "GROUP BY Orders.OID, amount " +
-                "HAVING COUNT(*) > 1 " +
+                " C.date = date('"+date+"')" +
+                " ORDER BY COUNT(*) DESC " +
                 ";";
 
         try (Connection conn = this.connect();
