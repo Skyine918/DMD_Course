@@ -68,8 +68,6 @@ public class DBFiller {
                 + " model VARCHAR(50),\n"
                 + " init_address VARCHAR(50),\n"
                 + " arriving_address VARCHAR(50),\n"
-                + " IsPaid BIT,\n"
-                + " CardData VARCHAR(50),\n"
                 + " FOREIGN KEY (username) REFERENCES Customers(username),\n"
                 + " FOREIGN KEY (plate) REFERENCES Cars(plate)\n"
                 + ");");
@@ -84,6 +82,8 @@ public class DBFiller {
         sqls.add("CREATE TABLE IF NOT EXISTS Workshops (\n"
                 + " WID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + " location VARCHAR(50),\n"
+                + " total_amount INTEGER,\n"
+                + " available_amount INTEGER,\n"
                 + " availability BIT\n"
                 + ");");
 
@@ -150,7 +150,8 @@ public class DBFiller {
                 + " OID INTEGER,\n"
                 + " amount INTEGER,\n"
                 + " carddata VARCHAR(100),\n"
-                + " payment_time smalldatetime,\n"
+                + " payment_time date,\n"
+                + " IsPaid BIT,\n"
                 + " FOREIGN KEY (OID) REFERENCES Orders(OID)\n"
                 + ");");
 
@@ -235,15 +236,15 @@ public class DBFiller {
                 ";");
 
         sqls.add("INSERT INTO Payments (OID, amount, payment_time) VALUES" +
-                " ('1', '222', '25/10/2018 12:30'),\n" +
-                " ('2', '22', '25/10/2018 12:30'),\n" +
-                " ('3', '2', '25/10/2018 12:30'),\n" +
-                " ('4', '222', '25/10/2018 12:30'),\n" +
-                " ('5', '222', '25/10/2018 12:30'),\n" +
-                " ('5', '222', '25/10/2018 12:30'),\n" +
-                " ('5', '222', '25/10/2018 12:30'),\n" +
-                " ('6', '222', '25/11/2018 12:30'),\n" +
-                " ('3', '222', '25/11/2018 12:30')\n" +
+                " ('1', '222', date('now', '-5 days')),\n" +
+                " ('2', '22', date('now', '-5 days')),\n" +
+                " ('3', '2', date('now', '-5 days')),\n" +
+                " ('7', '222', date('now', '-5 days')),\n" +
+                " ('5', '222', date('now', '-5 days')),\n" +
+                " ('5', '222', date('now', '-5 days')),\n" +
+                " ('5', '222', date('now', '-5 days')),\n" +
+                " ('6', '222', date('now', '-5 days')),\n" +
+                " ('3', '222', date('now', '-5 days'))\n" +
 
                 ";");
 
