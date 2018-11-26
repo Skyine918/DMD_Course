@@ -83,8 +83,7 @@ public class DBFiller {
                 + " WID INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + " location VARCHAR(50),\n"
                 + " total_amount INTEGER,\n"
-                + " available_amount INTEGER,\n"
-                + " availability BIT\n"
+                + " available_amount INTEGER\n"
                 + ");");
 
         sqls.add("CREATE TABLE IF NOT EXISTS Trips (\n"
